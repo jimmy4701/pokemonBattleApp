@@ -1,50 +1,37 @@
-# Welcome to your Expo app 👋
+# Spécification Fonctionnelle de l'Application de Recherche et de Bataille entre Pokémons
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Introduction
+Cette application est développée dans le cadre d'un cours de l'école MyDigitalSchool. Elle permet aux utilisateurs de rechercher, collectionner et combattre des pokémons.
 
-## Get started
+## 1. Système de Recherche
 
-1. Install dependencies
+### Fonctionnalités
+- **Recherche par Nom** : Interface permettant de rechercher un pokémon spécifique par son nom.
+- **Recherche par Type** : Interface permettant de rechercher des pokémons en fonction de leur type.
+- **Liste des Types de Pokémons** : Interface pour afficher tous les types de pokémons disponibles.
+- **Liste Complète des Pokémons** : Interface pour lister tous les pokémons disponibles dans l'application.
 
-   ```bash
-   npm install
-   ```
+## 2. Système de Gain de Pokémon
 
-2. Start the app
+### Initialisation
+- À la première utilisation de l'application, l'utilisateur reçoit :
+  - 10 unités de monnaie de type A
+  - 5 unités de monnaie de type B
 
-   ```bash
-    npx expo start
-   ```
+### Fonctionnalités
+- **Obtention de Pokémons via des Coffres** : Interface permettant de récupérer des pokémons en ouvrant des coffres.
+- **Stockage des Pokémons** : Interface pour visualiser la liste complète des pokémons possédés par l'utilisateur.
+  - Pas de limite de stockage global (possibilité de stocker 10,000 pokémons ou plus).
+  - Limite de stockage par type de pokémon : maximum de 10 pokémons du même type.
+  - Possibilité de renommer les pokémons possédés.
 
-In the output, you'll find options to open the app in a
+### Monnaie et Coffres
+- **Types de Monnaie** : A, B, et C.
+  - La monnaie A permet d'ouvrir des coffres de type A (communs).
+  - La monnaie B permet d'ouvrir des coffres de type B (rares).
+  - La monnaie C permet d'ouvrir des coffres de type C (légendaires).
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 3. Système de Combat
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+### Fonctionnalités
+- **À venir** : Les détails du système de combat seront ajoutés dans une version future de l'application.
