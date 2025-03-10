@@ -4,6 +4,7 @@ import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { fetch } from 'expo/fetch';
 import { Image } from 'expo-image';
+import { Audio } from 'expo-av';
 const PokemonDetails = () => {
 
         const { id } = useLocalSearchParams();
@@ -14,6 +15,11 @@ const PokemonDetails = () => {
             const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
             const data = await response.json();
             setPokemon(data);
+
+            if(data?.cries?.latest) {
+                const { sound } = await Audio.Sound.createAsync({ uri: data?.cries?.latest });
+                await sound.playAsync();
+            }
         };
         fetchPokemon();
     }, [id]);
