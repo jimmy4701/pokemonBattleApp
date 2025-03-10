@@ -24,12 +24,8 @@ const TabsLayout = () => {
                     <MaterialCommunityIcons name="magnify" color={color} size={size} />
                 ),
             }} />
-            <Tabs.Screen name="settings" options={{
-                headerShown: false,
-                title: 'Settings',
-                tabBarIcon: ({ color, size }) => (
-                    <MaterialCommunityIcons name="cog" color={color} size={size} />
-                ),
+            <Tabs.Screen name="pokemon/[id]" options={{
+                href: null, // This will hide the tab from the tab bar
             }} />
         </Tabs>
     )

@@ -3,6 +3,8 @@ import { View, Text, TextInput, KeyboardAvoidingView, Platform, Button, Touchabl
 import Loader from '@/components/utils/Loader';
 import { fetch } from 'expo/fetch';
 import { Image } from 'expo-image';
+import { Link } from 'expo-router';
+
 const Search = () => {
 
     const [pokemonName, setPokemonName] = useState('');
@@ -69,6 +71,9 @@ const Search = () => {
                                 />
                             </View>
                         )}
+                        <Link href={`/pokemon/${results?.id}`}>
+                            <Text className="text-blue-500">Voir les détails {results?.id}</Text>
+                        </Link>
                     </View>
                 )}
         </View>
