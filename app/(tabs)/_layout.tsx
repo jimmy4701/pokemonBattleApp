@@ -25,6 +25,7 @@ const TabsLayout = () => {
                 ),
             }} />
             <Tabs.Screen name="pokemon/[id]" options={{
+                headerShown: false,
                 href: null, // This will hide the tab from the tab bar
             }} />
         </Tabs>

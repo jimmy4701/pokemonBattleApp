@@ -71,8 +71,8 @@ const Search = () => {
                                 />
                             </View>
                         )}
-                        <Link href={`/pokemon/${results?.id}`}>
-                            <Text className="text-blue-500">Voir les détails {results?.id}</Text>
+                        <Link href={`/pokemon/${results?.id}`} className="bg-gray-700 p-4 items-center justify-center flex-row rounded-md">
+                            <Text className="text-white">Voir la fiche du pokémon</Text>
                         </Link>
                     </View>
                 )}
