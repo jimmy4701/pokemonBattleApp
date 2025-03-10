@@ -4,7 +4,12 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const TabsLayout = () => {
     return (
-        <Tabs>
+        <Tabs
+            screenOptions={{
+                tabBarHideOnKeyboard: true,
+                tabBarActiveTintColor: 'red',
+            }}
+        >
             <Tabs.Screen name="index" options={{
                 headerShown: false,
                 title: 'Home',  
@@ -12,9 +17,9 @@ const TabsLayout = () => {
                     <MaterialCommunityIcons name="home" color={color} size={size} />
                 ),
             }} />
-            <Tabs.Screen name="details" options={{
+            <Tabs.Screen name="search" options={{
                 headerShown: false,
-                title: 'Details',
+                title: 'Search',
                 tabBarIcon: ({ color, size }) => (
                     <MaterialCommunityIcons name="magnify" color={color} size={size} />
                 ),
