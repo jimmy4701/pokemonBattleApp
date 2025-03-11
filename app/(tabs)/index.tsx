@@ -2,6 +2,7 @@ import { Link } from 'expo-router';
 import React, { useCallback, useState } from 'react';
 import { Text, View, StyleSheet, TextInput, Pressable, Button } from 'react-native';
 import { fetch } from 'expo/fetch'
+import { Image } from 'expo-image'
 
 const HomePage = () => {
 
@@ -36,7 +37,7 @@ const HomePage = () => {
             </Pressable>
             {results != null &&
                 <View>
-                    
+                    <Image source={{uri: results?.image}} style={{height: 100, width: 100}} />
                     <Text className="text-2xl font-bold">{results?.name} {results?.id}</Text>
                 </View>
             }
