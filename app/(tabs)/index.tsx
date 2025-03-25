@@ -39,6 +39,7 @@ const HomePage = () => {
                 <View>
                     <Image source={{uri: results?.image}} style={{height: 100, width: 100}} />
                     <Text className="text-2xl font-bold">{results?.name} {results?.id}</Text>
+                    <Link href={`/(tabs)/pokemon/${results?.id}`}>Voir la fiche</Link>
                 </View>
             }
         </View>

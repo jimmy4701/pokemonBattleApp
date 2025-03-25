@@ -12,9 +12,9 @@ const TabsLayout = () => {
                 title: "Recherche",
                 tabBarIcon: ({color, size}) => <MaterialCommunityIcons name='magnify' color={color} size={size} /> 
             }} />
-            <Tabs.Screen name='pokemon' options={{
+            <Tabs.Screen name='pokemon/[id]' options={{
+                href: null,
                 headerShown: false
-
             }} />
         </Tabs>
     )
