@@ -8,6 +8,7 @@ import 'react-native-reanimated';
 import '../global.css'
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { ProfileContextProvider } from '@/components/contexts/ProfileContext';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -30,11 +31,13 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar hidden={true}  />
+      <ProfileContextProvider>
+        <Stack>
+          <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+        <StatusBar hidden={true}  />
+      </ProfileContextProvider>
     </ThemeProvider>
   );
 }

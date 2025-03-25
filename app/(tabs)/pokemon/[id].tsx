@@ -33,10 +33,10 @@ const Pokemon = () => {
                 {pokemon?.apiPreEvolution?.pokedexIdd &&
                     <Link className='rounded-lg p-5 bg-white shadow-lg flex-1 text-center' href={`/(tabs)/pokemon/${pokemon?.apiPreEvolution?.pokedexIdd}`}>Voir la pré-évolution</Link>
                 }
-                {pokemon?.apiEvolutions?.length > 0 && 
-                    <Link className='rounded-lg p-5 bg-white shadow-lg flex-1 text-center'  href={`/(tabs)/pokemon/${pokemon?.apiEvolutions[0].pokedexId}`}>Voir l'évolution</Link>
-                }
             </View>
+                {pokemon?.apiEvolutions?.map((evolution: any) => {
+                    return <Link key={evolution?.pokedexId} className='rounded-lg p-5 bg-white shadow-lg text-center text-black'  href={`/(tabs)/pokemon/${evolution?.pokedexId}`}>{evolution?.name}</Link>
+                })}
         </View>
     )
 }
