@@ -3,7 +3,7 @@ import React, { useCallback, useContext, useState } from 'react';
 import { Text, View, StyleSheet, TextInput, Pressable, Button } from 'react-native';
 import { fetch } from 'expo/fetch'
 import { Image } from 'expo-image'
-import { ChestRarity, ProfileContext } from '@/components/contexts/ProfileContext';
+import { ProfileContext } from '@/components/contexts/ProfileContext';
 import { Pokemon, PokemonContext } from '@/components/contexts/PokemonContext';
 
 const HomePage = () => {
@@ -11,14 +11,14 @@ const HomePage = () => {
     const [pokemonName, setPokemonName] = useState('')
     const [results, setResults] = useState<any>(null)
     const { wallet, add_money } = useContext(ProfileContext)
-    const { searchPokemon, searchPokemonByRarity } = useContext(PokemonContext)
+    const { searchPokemon } = useContext(PokemonContext)
 
     const handleSearch = useCallback(async () => {
         if(pokemonName == '') return
         
-        const pokemons = await searchPokemonByRarity(ChestRarity.LEGENDARY)
+        const pokemons = await searchPokemon(pokemonName)
 
-        setResults([pokemons])
+        setResults(pokemons)
 
     }, [pokemonName])
     

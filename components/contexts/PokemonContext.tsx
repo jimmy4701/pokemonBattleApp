@@ -119,7 +119,8 @@ export const PokemonContextProvider = ({children}: {children: ReactNode[] | Reac
                 break;
         }
 
-        return found_pokemons[0]
+        const index = Math.floor(Math.random() * found_pokemons.length)
+        return found_pokemons[index]
     }
 
     return <PokemonContext.Provider value={{
