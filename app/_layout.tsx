@@ -9,6 +9,7 @@ import '../global.css'
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { ProfileContextProvider } from '@/components/contexts/ProfileContext';
+import {PokemonContextProvider} from '@/components/contexts/PokemonContext';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -31,13 +32,15 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <ProfileContextProvider>
-        <Stack>
-          <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
-          <Stack.Screen name="+not-found" />
-        </Stack>
-        <StatusBar hidden={true}  />
-      </ProfileContextProvider>
+      <PokemonContextProvider>
+        <ProfileContextProvider>
+          <Stack>
+            <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
+            <Stack.Screen name="+not-found" />
+          </Stack>
+          <StatusBar hidden={true}  />
+        </ProfileContextProvider>
+      </PokemonContextProvider>
     </ThemeProvider>
   );
 }

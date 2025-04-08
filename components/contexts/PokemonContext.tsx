@@ -1,6 +1,7 @@
-import { createContext } from 'react'
+import { createContext, ReactNode, useEffect, useState } from 'react'
 
-interface Pokemon {
+
+export interface Pokemon {
     id: number;
     pokedexId: number;
     name: string;
@@ -43,5 +44,28 @@ interface Pokemon {
   }
 
 export const PokemonContext = createContext({
-    searchPokemon: (name: string) => { return {} as Pokemon }
+    searchPokemon: async (name: string) => { return [] as Pokemon[] }
 })
+
+export const PokemonContextProvider = ({children}: {children: ReactNode[] | ReactNode}) => {
+
+    const [pokemons, setPokemons] = useState<Pokemon[]>([])
+
+    useEffect(() => {
+        const pokemons_data = require('../../assets/data/pokemon_base.json')
+        setPokemons(pokemons_data)
+    }, [])
+
+    const searchPokemon = async (name: string) => {
+        
+        const found_pokemons = pokemons.filter(o => o.name.includes(name))
+
+        return found_pokemons || [] as Pokemon[]
+    }
+
+    return <PokemonContext.Provider value={{
+        searchPokemon
+    }}>
+        {children}
+    </PokemonContext.Provider>
+}

@@ -4,35 +4,29 @@ import { Text, View, StyleSheet, TextInput, Pressable, Button } from 'react-nati
 import { fetch } from 'expo/fetch'
 import { Image } from 'expo-image'
 import { ProfileContext } from '@/components/contexts/ProfileContext';
+import { Pokemon, PokemonContext } from '@/components/contexts/PokemonContext';
 
 const HomePage = () => {
 
     const [pokemonName, setPokemonName] = useState('')
     const [results, setResults] = useState<any>(null)
     const { wallet, add_money } = useContext(ProfileContext)
+    const { searchPokemon } = useContext(PokemonContext)
 
     const handleSearch = useCallback(async () => {
         if(pokemonName == '') return
-        const response = await fetch('https://pokebuildapi.fr/api/v1/pokemon/' + pokemonName.toLocaleLowerCase(), {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-
-        if(!response.ok) return
         
-        const pokemon = await response.json()
-        setResults(pokemon)
+        const pokemons = await searchPokemon(pokemonName)
+
+        setResults(pokemons)
 
     }, [pokemonName])
-
-    const chest = { rarity : "EPIC"}
+    
 
     return (
         <View className='flex items-center justify-center h-screen'>
             <Text className='text-3xl font-bold text-red-600'>Rechechez un pokémon</Text>
             
-            <Image source={require(`../../assets/images/chest_${chest.rarity.toLowerCase()}.jpeg`)} style={{height: 300, width: 300}} />
             <TextInput 
                 className="bg-white rounded-md border border-gray-300 px-10 py-3"
                 placeholder='Entrez le nom du pokémon'
@@ -42,11 +36,13 @@ const HomePage = () => {
                 <Text className='text-white font-bold'>Rechercher</Text>
             </Pressable>
             {results != null &&
-                <View>
-                    <Image source={{uri: results?.image}} style={{height: 100, width: 100}} />
-                    <Text className="text-2xl font-bold">{results?.name} {results?.id}</Text>
-                    <Link href={`/(tabs)/pokemon/${results?.id}`}>Voir la fiche</Link>
-                </View>
+                results?.map((pokemon: Pokemon) => {
+                    return <View key={pokemon.id}>
+                        <Image source={{uri: pokemon?.image}} style={{height: 100, width: 100}} />
+                        <Text className="text-2xl font-bold">{pokemon?.name} {pokemon?.id}</Text>
+                        <Link href={`/(tabs)/pokemon/${pokemon?.id}`}>Voir la fiche</Link>
+                    </View>
+                })
             }
         </View>
     )
