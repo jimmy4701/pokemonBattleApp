@@ -35,3 +35,13 @@ Cette application est développée dans le cadre d'un cours de l'école MyDigita
 
 ### Fonctionnalités
 - **À venir** : Les détails du système de combat seront ajoutés dans une version future de l'application.
+
+
+### Règles / Algo pour les raretés de coffre
+
+Définition de rareté dans le cadre de l'API : 
+- COMMON = Pokemon sans pré-volution et avec évolutions = commun, attrapé plus souvent
+- UNCOMMON = Pokémon avec pré-volution et évolutions = plus rare
+- RARE = Pokémon avec que des pré-volutions sans évolution = beaucoup plus rare
+- EPIC = Pokémon sans prévolution et sans évolutions = extrêmement rare
+- LEGENDARY = Pokémons dans une liste définies dans l'appli
