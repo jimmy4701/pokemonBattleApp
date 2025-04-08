@@ -58,7 +58,7 @@ export const PokemonContextProvider = ({children}: {children: ReactNode[] | Reac
 
     const searchPokemon = async (name: string) => {
         
-        const found_pokemons = pokemons.filter(o => o.name.includes(name))
+        const found_pokemons = pokemons.filter(o => o.name.includes(name) || o.name.includes(name.toLowerCase()))
 
         return found_pokemons || [] as Pokemon[]
     }
