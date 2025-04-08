@@ -9,7 +9,7 @@ const HomePage = () => {
 
     const [pokemonName, setPokemonName] = useState('')
     const [results, setResults] = useState<any>(null)
-    const { wallet } = useContext(ProfileContext)
+    const { wallet, add_money } = useContext(ProfileContext)
 
     const handleSearch = useCallback(async () => {
         if(pokemonName == '') return
@@ -30,6 +30,8 @@ const HomePage = () => {
         <View className='flex items-center justify-center h-screen'>
             <Text className='text-3xl font-bold text-red-600'>Rechechez un pokémon</Text>
             <Text>Mon wallet : {wallet}</Text>
+            
+            <Image source={"images/chest.jpg"} style={{height: 100, width: 100}} />
             <TextInput 
                 className="bg-white rounded-md border border-gray-300 px-10 py-3"
                 placeholder='Entrez le nom du pokémon'

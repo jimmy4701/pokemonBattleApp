@@ -1,7 +1,23 @@
 import { createContext, ReactNode, useState } from 'react'
 
+enum ChestRarity {
+    COMMON = "COMMON",
+    UNCOMMON = "UNCOMMON",
+    RARE = "RARE",
+    EPIC = "EPIC",
+    LEGENDARY = "LEGENDARY"
+}
+
+type Chest = {
+    price: number,
+    rarity: ChestRarity,
+}
+
+
+
 export const ProfileContext = createContext({
     wallet: 1000,
+    chests: [],
     caught_pokemons: [],
     add_money: (money: number) => {},
     substract_money: (money: number) => {}
@@ -11,7 +27,7 @@ export const ProfileContext = createContext({
 export const ProfileContextProvider = ({children}:{children: ReactNode[]}) => {
     const [wallet, setWallet] = useState(1000)
     const [caught_pokemons, setCaughtPokemons] = useState([])
-
+    const [chests, setChests] = useState([])
     const add_money = (money: number) => {
         setWallet(wallet + money)
     }
