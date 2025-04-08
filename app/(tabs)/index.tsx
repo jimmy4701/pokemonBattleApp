@@ -4,6 +4,7 @@ import { Text, View, StyleSheet, TextInput, Pressable, Button } from 'react-nati
 import { fetch } from 'expo/fetch'
 import { Image } from 'expo-image'
 import { ProfileContext } from '@/components/contexts/ProfileContext';
+import Chest from '../../assets/images/chest.jpeg'
 
 const HomePage = () => {
 
@@ -31,7 +32,7 @@ const HomePage = () => {
             <Text className='text-3xl font-bold text-red-600'>Rechechez un pokémon</Text>
             <Text>Mon wallet : {wallet}</Text>
             
-            <Image source={"images/chest.jpg"} style={{height: 100, width: 100}} />
+            <Image source={require('../../assets/images/chest.jpeg')} style={{height: 300, width: 300}} />
             <TextInput 
                 className="bg-white rounded-md border border-gray-300 px-10 py-3"
                 placeholder='Entrez le nom du pokémon'
