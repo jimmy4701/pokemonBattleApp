@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useState } from 'react'
 
-enum ChestRarity {
+export enum ChestRarity {
     COMMON = "COMMON",
     UNCOMMON = "UNCOMMON",
     RARE = "RARE",
